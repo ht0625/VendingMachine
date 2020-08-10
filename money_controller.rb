@@ -15,8 +15,11 @@ class MoneyController
     @total = 0
     @change
   end
-  def sale
-    @total -= @price
-    @sale_amount += @price
+  def sale(price)
+    @total -= price
+    @sale_amount += price
+  end
+  def get_sale_amount
+    @sale_amount
   end
 end

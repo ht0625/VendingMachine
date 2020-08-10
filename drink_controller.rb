@@ -3,6 +3,9 @@ class DrinkController
     @stock = 5
     @drinks = []
   end
+  def display_drinks
+    @drinks
+  end
 
   def stock_add(drink)
     add_switch = 1
@@ -18,15 +21,28 @@ class DrinkController
     @drinks
   end
 
-  def purchase?(name,total)
+  # def purchase?(name,total)
+  #   @drinks.each do |d|
+  #     if (name == d[:name]) && ( d[:price] <= total)
+  #       return true
+  #     end
+  #   end
+  #   false
+  # end
+  def get_price(name)
     @drinks.each do |d|
-      if (name == d[:name]) && ( d[:price] <= total)
-        return true
+      if (name == d[:name])
+        d[:price]
       end
     end
-    false
   end
-
+  def get_stock(name)
+    @drinks.each do |d|
+      if (name == d[:name])
+        d[:stock]
+      end
+    end
+  end
   def sale(drink)
     @drinks.each_with_index do |d , i|
       if d[:name] == drink

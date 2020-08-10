@@ -28,10 +28,23 @@ class VendingMachine
     drink = Drink.new(name,price)
     @drink_controller.stock_add(drink.to_h)
   end
-  def choose_drink(name)
-    @drink_controller.purchase?(name,get_total)
-    #@drink_controller.sale(name)
+  def purchase?(name)
+    if (get_total >= @drink_controller.get_price(name)) && (@drink_controller.get_stock(name) >= 1)
+      true
+    else
+      false
+    end
   end
+  def get_sale_amount
+    @money_controller.get_sale_amount
+  end
+  def sale_drink(name)
+    @money_controller.sale(@drink_controller.get_price(name))
+  end
+  # def choose_drink(name)
+  #   @drink_controller.purchase?(name,get_total)
+  #   #@drink_controller.sale(name)
+  # end
 end
 
  #require '/Users/tamura/workspace/VMtest/vending_machine.rb'
