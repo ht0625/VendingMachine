@@ -1,4 +1,4 @@
-require 'byebug'
+
 require '/Users/tamura/workspace/VMtest/drink_controller.rb'
 require '/Users/tamura/workspace/VMtest/money_controller.rb'
 require '/Users/tamura/workspace/VMtest/drink.rb'
@@ -35,8 +35,8 @@ class VendingMachine
 end
 
  #require '/Users/tamura/workspace/VMtest/vending_machine.rb'
- vm = VendingMachine.new
- byebug
+ #vm = VendingMachine.new
+
 # vm.insert("100円玉")
 # vm.insert("500円玉")
 # vm.insert("1円玉")
@@ -45,4 +45,3 @@ end
 # vm.get_total
 
 # vm.insert_drink("cola",120)
-puts "END"
