@@ -21,29 +21,23 @@ class DrinkController
     @drinks
   end
 
-  # def purchase?(name,total)
-  #   @drinks.each do |d|
-  #     if (name == d[:name]) && ( d[:price] <= total)
-  #       return true
-  #     end
-  #   end
-  #   false
-  # end
   def get_price(name)
     @drinks.each do |d|
       if (name == d[:name])
-        d[:price]
+        return d[:price]
       end
     end
   end
+
   def get_stock(name)
     @drinks.each do |d|
       if (name == d[:name])
-        d[:stock]
+        return d[:stock]
       end
     end
   end
-  def sale(drink)
+
+  def sell_drink(drink)
     @drinks.each_with_index do |d , i|
       if d[:name] == drink
         @drinks[i][:stock] -= 1

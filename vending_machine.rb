@@ -12,13 +12,13 @@ class VendingMachine
   def insert(name)
     money = Money.new(name)
     if money.valid?
-      @money_controller.add_total(money.value)
+      @money_controller.add_deposit(money.value)
     else
       name
     end
   end
-  def get_total
-    @money_controller.total
+  def display_deposit
+    @money_controller.deposit
   end
   def get_eject
     @money_controller.eject
@@ -28,33 +28,44 @@ class VendingMachine
     drink = Drink.new(name,price)
     @drink_controller.stock_add(drink.to_h)
   end
-  def purchase?(name)
-    if (get_total >= @drink_controller.get_price(name)) && (@drink_controller.get_stock(name) >= 1)
+  def purchasable?(name)
+    if (display_deposit >= @drink_controller.get_price(name)) && (@drink_controller.get_stock(name) >= 1)
       true
     else
       false
     end
   end
-  def get_sale_amount
-    @money_controller.get_sale_amount
+
+  def display_drinks_stock
+    @drink_controller.display_drinks
   end
-  def sale_drink(name)
-    @money_controller.sale(@drink_controller.get_price(name))
+
+  def get_sales_amount
+    @money_controller.get_sales_amount
   end
-  # def choose_drink(name)
-  #   @drink_controller.purchase?(name,get_total)
-  #   #@drink_controller.sale(name)
-  # end
+
+  def sell_drink(name)
+    if purchasable?(name)
+      price = @drink_controller.get_price(name)
+      @money_controller.sales(price)
+      @drink_controller.sell_drink(name)
+    end
+    display_deposit
+  end
+
 end
 
- #require '/Users/tamura/workspace/VMtest/vending_machine.rb'
- #vm = VendingMachine.new
-
+#require '/Users/tamura/workspace/VMtest/vending_machine.rb'
+#vm = VendingMachine.new
 # vm.insert("100円玉")
 # vm.insert("500円玉")
 # vm.insert("1円玉")
-# vm.get_total
+# vm.display_deposit
 # vm.get_eject
-# vm.get_total
+# vm.display_deposit
 
 # vm.insert_drink("cola",120)
+
+# vm.sale_drink("cola")
+
+# get_sale_amount

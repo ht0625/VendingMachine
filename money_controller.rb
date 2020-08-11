@@ -1,25 +1,25 @@
 class MoneyController
   def initialize
-    @sale_amount = 0
+    @sales_amount = 0
     @change = 0
-    @total = 0
+    @deposit = 0
   end
-  def add_total(value)
-    @total += value
+  def add_deposit(value)
+    @deposit += value
   end
-  def total
-    @total
+  def display_deposit
+    @deposit
   end
   def eject
-    @change = @total
-    @total = 0
+    @change = @deposit
+    @deposit = 0
     @change
   end
-  def sale(price)
-    @total -= price
-    @sale_amount += price
+  def sales(price)
+    @deposit -= price
+    @sales_amount += price
   end
-  def get_sale_amount
-    @sale_amount
+  def get_sales_amount
+    @sales_amount
   end
 end
