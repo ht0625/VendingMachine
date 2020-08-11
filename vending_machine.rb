@@ -18,7 +18,7 @@ class VendingMachine
     end
   end
   def display_deposit
-    @money_controller.deposit
+    @money_controller.display_deposit
   end
   def get_eject
     @money_controller.eject
@@ -66,6 +66,7 @@ end
 
 # vm.insert_drink("cola",120)
 
-# vm.sale_drink("cola")
+# vm.sell_drink("cola")
+# vm.display_drinks_stock
 
-# get_sale_amount
+# vm.get_sales_amount
