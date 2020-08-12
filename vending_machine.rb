@@ -57,16 +57,32 @@ end
 
 #require '/Users/tamura/workspace/VMtest/vending_machine.rb'
 #vm = VendingMachine.new
+
+#step0~1
+#お金投入
 # vm.insert("100円玉")
 # vm.insert("500円玉")
 # vm.insert("1円玉")
-# vm.display_deposit
-# vm.get_eject
+
+#投入金額確認
 # vm.display_deposit
 
+#返金
+# vm.get_eject
+
+#step2,4
+#ドリンク投入
 # vm.insert_drink("cola",120)
 
-# vm.sell_drink("cola")
+#ドリンク在庫確認
 # vm.display_drinks_stock
 
+#step3
+#ドリンク購入
+# vm.sell_drink("cola")
+
+#売上確認
 # vm.get_sales_amount
+
+#購入可能？
+#vm.purchasable?("cola")
