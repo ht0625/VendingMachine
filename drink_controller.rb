@@ -3,22 +3,19 @@ class DrinkController
     @stock = 5
     @drinks = []
   end
+  
   def display_drinks
     @drinks
   end
 
   def stock_add(drink)
-    add_switch = 1
     @drinks.each_with_index do |d , i|
       if d[:name] == drink[:name]
         @drinks[i][:stock] += 1
-        add_switch = 0
+        return @drinks
       end
     end
-    if add_switch == 1
-      @drinks << {**drink,stock: @stock}
-    end
-    @drinks
+    @drinks << {**drink,stock: @stock}
   end
 
   def get_price(name)

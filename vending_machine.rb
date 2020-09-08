@@ -55,8 +55,8 @@ class VendingMachine
 
 end
 
-#require '/Users/tamura/workspace/VMtest/vending_machine.rb'
-#vm = VendingMachine.new
+# require '/Users/tamura/workspace/VMtest/vending_machine.rb'
+# vm = VendingMachine.new
 
 #step0~1
 #お金投入
